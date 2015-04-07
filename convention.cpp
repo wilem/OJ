@@ -32,36 +32,24 @@ vector<int> pts; //endpoints
 // rank from 0
 int rank_int(int p, vector<int>& arr)
 {
-#if 0
-	cout << "p: " << p;
 	int l, r, m;
-	l = 0; r = N-1; m = (l+r)>>1;
+	l = 0; r = arr.size()-1; m = (l+r)>>1;
 	for (; l < r; m = (l+r)>>1)
 		if (arr[m] < p)	l = m + 1;
 		else if (arr[m] == p) break;
 		else 		r = m - 1; // >
-	cout << ", m: " << m << endl;
 	return m;
-#else
-	vector<int>::iterator it = find(arr.begin(), arr.end(), p);
-	return it - arr.begin();
-#endif
 }
 
 int rank_req(Req p, vector<Req>& arr)
 {
-#if 0
 	int l, r, m;
-	l = 0; r = N-1; m = (l+r)>>1;
+	l = 0; r = arr.size()-1; m = (l+r)>>1;
 	for (; l < r; m = (l+r)>>1)
 		if (arr[m] < p)	l = m + 1;
 		else if (arr[m] == p) break;
 		else 		r = m - 1; // >
 	return m;
-#else
-	vector<Req>::iterator it = find(arr.begin(), arr.end(), p);
-	return it - arr.begin();
-#endif
 }
 
 void
